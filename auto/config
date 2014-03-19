@@ -5,8 +5,8 @@
 #_LINUX_FLAVOURS="686-pae"
 _SOURCE="false"
 
-lb_build_mirror_site="http://ftp.th.debian.org/debian/"
-#lb_build_mirror_site="http://mirror.debian.vn/debian/"
+#lb_build_mirror_site="http://ftp.th.debian.org/debian/"
+lb_build_mirror_site="http://mirror.debian.vn/debian/"
 
 lb config --debian-installer false \
         --debian-installer-gui false \
