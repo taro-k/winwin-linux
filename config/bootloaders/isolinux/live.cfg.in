@@ -1,0 +1,12 @@
+label live-@FLAVOUR@
+	menu label ^WinWin Linux 0.1 Trial(Live) (@FLAVOUR@)
+	menu default
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE@
+
+label live-@FLAVOUR@-failsafe
+	menu label ^failsafe boot
+	linux @LINUX@
+	initrd @INITRD@
+	append @APPEND_LIVE_FAILSAFE@
