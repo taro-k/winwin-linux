@@ -1,25 +1,5 @@
 #!/bin/sh
 
-# Load KVM module
-sudo /sbin/modprobe kvm
-if (cat /proc/cpuinfo | grep Intel); then
-  if !(sudo /sbin/modprobe kvm_intel); then
-    echo "Check Virtualization in BIOS. Press any key to exit."
-    read hoge
-    exit 1
-  fi
-elif (cat /proc/cpuinfo | grep AMD); then
-  if !(sudo /sbin/modprobe kvm_amd); then
-    echo "Check Virtualization in BIOS. Press any key to exit."
-    read hoge
-    exit 1
-  fi
-else
-  echo "Error: Your CPU supports Virtualization? Press any key to exit."
-  read hoge
-  exit 1
-fi
-
 # Creat test mount point
 echo "Creating test mount point /tmp/wintest/  ..."
 if [ -e "/tmp/wintest/" ]; then

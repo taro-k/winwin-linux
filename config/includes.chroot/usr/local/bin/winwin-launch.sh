@@ -7,6 +7,27 @@
 # e.g. memForLinux=1024
 memForLinux=
 
+# Load KVM module
+sudo /sbin/modprobe kvm
+if (cat /proc/cpuinfo | grep Intel); then
+  if !(sudo /sbin/modprobe kvm_intel); then
+    echo "Check Virtualization in BIOS. Press any key to exit."
+    read hoge
+    exit 1
+  fi
+elif (cat /proc/cpuinfo | grep AMD); then
+  if !(sudo /sbin/modprobe kvm_amd); then
+    echo "Check Virtualization in BIOS. Press any key to exit."
+    read hoge
+    exit 1
+  fi
+else
+  echo "Error: Your CPU supports Virtualization? Press any key to exit."
+  read hoge
+  exit 1
+fi
+
+# Find current total memory
 memTotal=$(cat /proc/meminfo | grep MemTotal | tr -s ' ' | cut -d ' ' -f2)
 tmp=`expr $memTotal \* 1024`
 tmp=`expr $tmp / 1000`
@@ -14,7 +35,7 @@ memTotalM=`expr $tmp / 1000`
 memTotalM2=`expr $memTotalM / 2`
 memForWin=$memTotalM2
 
-echo "The total memory in MB is" $memTotalM
+echo "The total memory is" $memTotalM "MB."
 
 if test -n "$memForLinux"; then
   echo "You specify" $memForLinux "MB for Linux."
