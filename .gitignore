@@ -1,0 +1,12 @@
+.build
+build.log
+chroot
+binary
+binary.*
+cache
+chroot.packages.install
+chroot.packages.live
+config/binary
+config/bootstrap
+config/common
+config/source
