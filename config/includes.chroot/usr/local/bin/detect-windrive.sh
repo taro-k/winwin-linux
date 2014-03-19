@@ -48,7 +48,7 @@ sudo /sbin/fdisk -l | grep -e "NTFS" | grep -v Hidden | cut -c 1-9 | while read 
                 echo $line | cut -c 1-8 >> /tmp/win_devices
           fi
           # Need to sleep before unmount for some computers.
-          sleep 2s
+          sleep 1s
           sudo umount /tmp/wintest
         fi
   fi
@@ -58,13 +58,13 @@ done
 echo "Creating command shortcut at desktop  ..."
 sort /tmp/win_devices | uniq | while read line; do
 safeDeviceName=$(echo $line | sed -e "s/\///g")
-shortCutName="Win-trial(snapshot)"$safeDeviceName".exe"
+shortCutName="trial-win-"$safeDeviceName".exe"
   echo "\
 [Desktop Entry]\n\
 Type=Application\n\
 Name="$shortCutName"\n\
-Exec=qemu-system-x86_64 -device ahci,id=ahci0,bus=pci.0,addr=0x4 -drive file="$line",if=none,id=drive-sata0-0-0,format=raw,cache=none,aio=native -device ide-hd,bus=ahci0.0,drive=drive-sata0-0-0,id=sata0-0-0,bootindex=1 -cpu kvm64,+nx -enable-kvm -m 1536 -snapshot\n\
-Terminal=false\n\
+Exec=/usr/local/bin/winwin-launch.sh "$line"\n\
+Terminal=true\n\
 StartupNotify=false" > ~/Desktop/$shortCutName".desktop"
 chmod +x ~/Desktop/$shortCutName".desktop"
 done
