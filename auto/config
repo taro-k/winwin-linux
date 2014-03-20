@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#_LINUX_FLAVOURS="amd64"
+_LINUX_FLAVOURS="amd64"
 #_LINUX_FLAVOURS="486"
 #_LINUX_FLAVOURS="686-pae"
 _SOURCE="false"
@@ -8,9 +8,14 @@ _SOURCE="false"
 #lb_build_mirror_site="http://ftp.th.debian.org/debian/"
 lb_build_mirror_site="http://mirror.debian.vn/debian/"
 
-lb config --debian-installer false \
+lb config noauto \
+        --ignore-system-defaults \
+        --mode debian \
+        --debian-installer false \
         --debian-installer-gui false \
         --source "${_SOURCE}" \
+        --linux-flavours "${_LINUX_FLAVOURS}" \
+        --linux-packages "linux-image linux-headers" \
         --parent-mirror-bootstrap "$lb_build_mirror_site" \
         --parent-mirror-binary "$lb_build_mirror_site" \
         --parent-mirror-binary-updates "$lb_build_mirror_site" \
