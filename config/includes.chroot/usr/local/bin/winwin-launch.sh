@@ -56,6 +56,11 @@ if !(test $memForWin -gt 240); then
   exit 1
 fi
 
+if (test $memForWin -gt 2047); then
+  memForWin=2047
+  echo "Mem for Win is capped at " $memForWin "MB."
+fi
+
 echo "Memory for Win is" $memForWin "MB."
 
 driveKind=$(echo $1 | cut -c 6)
@@ -77,9 +82,17 @@ case $driveKind in
 esac
 
 execWin="qemu-system-x86_64 "$driveOption" -cpu kvm64,+nx -enable-kvm -m "$memForWin" -snapshot"
+echo "Win is launching ..."
 echo $execWin
-$execWin &
+echo ""
+echo "WARNING: DO NOT CLOSE this window until Win finishes."
+$execWin
 
-# Just to keep displaying
-echo "Launched. Press any key to finish."
-read hoge
+# Following is commented out because nohup is not enough for
+# Xfce launcher to prevent close.
+#
+# nohup $execWin &
+
+# # Just to keep displaying
+# echo "Launched. Press any key to finish."
+# read hoge
