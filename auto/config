@@ -1,8 +1,8 @@
 #!/bin/sh
 
-_LINUX_FLAVOURS="amd64"
+#_LINUX_FLAVOURS="amd64"
 #_LINUX_FLAVOURS="486"
-#_LINUX_FLAVOURS="686-pae"
+_LINUX_FLAVOURS="686-pae"
 _SOURCE="false"
 
 #lb_build_mirror_site="http://ftp.th.debian.org/debian/"
@@ -14,7 +14,7 @@ lb config noauto \
         --debian-installer false \
         --debian-installer-gui false \
         --source "${_SOURCE}" \
-        --architecture amd64 \
+        --architecture i386 \
         --distribution wheezy \
         --backports true \
         --linux-flavours "${_LINUX_FLAVOURS}" \
