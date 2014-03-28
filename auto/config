@@ -15,6 +15,7 @@ lb config noauto \
         --debian-installer-gui false \
         --source "${_SOURCE}" \
         --architecture amd64 \
+        --distribution wheezy \
         --backports true \
         --linux-flavours "${_LINUX_FLAVOURS}" \
         --linux-packages "linux-image linux-headers" \
