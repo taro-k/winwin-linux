@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=win-launcher-gen
+Name=winwin-gen
 Comment=
-Exec=/usr/local/bin/detect-windrive.sh
+Exec=/usr/bin/winwin-detect.sh
 Icon=
 Path=
 Terminal=true
