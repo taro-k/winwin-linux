@@ -1,0 +1,3 @@
+Package: qemu* libspice-server1 libusb-1.0-0 libusbredirparser1 openbios-ppc openbios-sparc libusbredirparser1 libspice-server1 libusb-1.0-0 openbios-ppc openbios-sparc seabios
+Pin: release n=wheezy-backports
+Pin-Priority: 600

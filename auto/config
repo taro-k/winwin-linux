@@ -15,6 +15,7 @@ lb config noauto \
         --debian-installer-gui false \
         --source "${_SOURCE}" \
         --architecture amd64 \
+        --backports true \
         --linux-flavours "${_LINUX_FLAVOURS}" \
         --linux-packages "linux-image linux-headers" \
         --parent-mirror-bootstrap "$lb_build_mirror_site" \
