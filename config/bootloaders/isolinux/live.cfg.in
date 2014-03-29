@@ -1,5 +1,5 @@
 label live-@FLAVOUR@
-	menu label ^WinWin Linux 0.2 Try (@FLAVOUR@)
+	menu label ^WinWin Linux 0.2 trial (@FLAVOUR@)
 	menu default
 	linux @LINUX@
 	initrd @INITRD@
