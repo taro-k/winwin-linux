@@ -18,6 +18,7 @@ lb config noauto \
         --architecture i386 \
         --distribution wheezy \
         --backports true \
+        --archive-areas "main contrib" \
         --linux-flavours "${_LINUX_FLAVOURS}" \
         --linux-packages "linux-image linux-headers" \
         --parent-mirror-bootstrap "$lb_build_mirror_site" \

@@ -1,3 +1,7 @@
+Package: virtualbox virtualbox-dkms virtualbox-qt libgsoap4
+Pin: release n=wheezy-backports,c=contrib
+Pin-Priority: 500
+
 Package: qemu* libspice-server1 libusb-1.0-0 libusbredirparser1 openbios-ppc openbios-sparc libusbredirparser1 libspice-server1 libusb-1.0-0 openbios-ppc openbios-sparc seabios
 Pin: release n=wheezy-backports
 Pin-Priority: 600
