@@ -6,7 +6,8 @@ _LINUX_FLAVOURS="686-pae"
 _SOURCE="false"
 
 #lb_build_mirror_site="http://ftp.th.debian.org/debian/"
-lb_build_mirror_site="http://mirror.debian.vn/debian/"
+lb_build_mirror_site="http://localhost:3142/mirror.debian.vn/debian/"
+lb_build_mirror_security="http://localhost:3142/security.debian.org/"
 
 lb config noauto \
         --ignore-system-defaults \
@@ -23,15 +24,19 @@ lb config noauto \
         --parent-mirror-binary "$lb_build_mirror_site" \
         --parent-mirror-binary-updates "$lb_build_mirror_site" \
         --parent-mirror-binary-backports "$lb_build_mirror_site" \
+        --parent-mirror-binary-security "$lb_build_mirror_security" \
         --parent-mirror-chroot "$lb_build_mirror_site" \
         --parent-mirror-chroot-updates "$lb_build_mirror_site" \
         --parent-mirror-chroot-backports "$lb_build_mirror_site" \
+        --parent-mirror-chroot-security "$lb_build_mirror_security" \
         --parent-mirror-debian-installer "$lb_build_mirror_site" \
         --mirror-bootstrap "$lb_build_mirror_site" \
         --mirror-binary "$lb_build_mirror_site" \
         --mirror-binary-updates "$lb_build_mirror_site" \
         --mirror-binary-backports "$lb_build_mirror_site" \
+        --mirror-binary-security "$lb_build_mirror_security" \
         --mirror-chroot "$lb_build_mirror_site" \
         --mirror-chroot-updates "$lb_build_mirror_site" \
         --mirror-chroot-backports "$lb_build_mirror_site" \
+        --mirror-chroot-security "$lb_build_mirror_security" \
         --mirror-debian-installer "$lb_build_mirror_site"
