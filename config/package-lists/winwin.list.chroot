@@ -6,7 +6,7 @@ iceweasel
 task-laptop
 task-english
 
-#qemu
+qemu
 virtualbox
 
 #task-xfce-desktop
