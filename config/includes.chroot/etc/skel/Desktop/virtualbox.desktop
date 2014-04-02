@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=virtualbox
+Comment=Run several virtual systems on a single host computer
+Exec=VirtualBox %U
+Icon=virtualbox
+Path=
+Terminal=false
+StartupNotify=false
