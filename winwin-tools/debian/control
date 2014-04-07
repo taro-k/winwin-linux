@@ -1,0 +1,16 @@
+Source: winwin-tools
+Section: utils
+Priority: extra
+Maintainer: Taro Konda <taro-k@movasense.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://git.debian.org/collab-maint/winwin-tools.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/winwin-tools.git;a=summary
+
+Package: winwin-tools
+Architecture: any
+Depends: sudo
+#Depends: sudo, fdisk, grep, cut, sort, uniq, xfce4, qemu
+Description: Tools to detect and launch win device from WinWin Linux
+ This is a tool to detect and launch win device from WinWin Linux.

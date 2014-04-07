@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# Test /tmp/win_devices
+if !(cat /tmp/win_devices); then
+  echo "ERROR: Please run winwin-vbox first, or you have no Win device."
+  echo "Press any key to exit."
+  read hoge
+  exit 1
+fi
+
+dev1="null"
+sort /tmp/win_devices | uniq | while read line; do
+  echo "Creating desktop shortcut for "$line" ..."
+  dev2=$(echo $line | cut -c 1-3)
+  if (test $dev1 = $dev2); then
+    dev1=$dev2
+	continue
+  fi
+  dev1=$dev2
+  shortCutName="winwin-qemu-"$dev2
+  echo "\
+[Desktop Entry]\n\
+Type=Application\n\
+Name="$shortCutName"\n\
+Exec=/usr/bin/ww-q-run "$dev2"\n\
+Terminal=true\n\
+StartupNotify=false" > ~/Desktop/$shortCutName".desktop"
+  chmod +x ~/Desktop/$shortCutName".desktop"
+done
+
+# Just to keep displaying
+echo "Press any key to finish."
+read hoge
+exit 0

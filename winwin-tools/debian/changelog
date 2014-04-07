@@ -1,0 +1,11 @@
+winwin-tools (0.2.0) unstable; urgency=low
+
+  * Use mainly virtualbox and optionally qemu
+
+ -- Taro Konda <taro-k@movasense.com>  Thu, 03 Mar 2014 00:57:48 +0900
+
+winwin-tools (0.0.1-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Taro Konda <taro-k@movasense.com>  Fri, 21 Mar 2014 14:06:48 +0900
