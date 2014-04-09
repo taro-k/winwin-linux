@@ -3,7 +3,7 @@ Upstream-Name: winwin-tools
 Source: <url://example.com>
 
 Files: *
-Copyright: 2014 Taro Konda <taro-k@movasense_com>
+Copyright: 2014 Taro Konda <taro@winwinlinux.org>
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by

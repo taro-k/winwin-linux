@@ -1,7 +1,7 @@
 Source: winwin-tools
 Section: utils
 Priority: extra
-Maintainer: Taro Konda <taro-k@movasense.com>
+Maintainer: Taro Konda <taro@winwinlinux.org>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: <insert the upstream URL, if relevant>
