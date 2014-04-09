@@ -22,7 +22,7 @@ sort /tmp/win_devices | uniq | while read line; do
 [Desktop Entry]\n\
 Type=Application\n\
 Name="$shortCutName"\n\
-Exec=/usr/bin/ww-q-run.sh "$dev2"\n\
+Exec=/usr/bin/ww-q-run "$dev2"\n\
 Terminal=true\n\
 StartupNotify=false" > ~/Desktop/$shortCutName".desktop"
   chmod +x ~/Desktop/$shortCutName".desktop"
