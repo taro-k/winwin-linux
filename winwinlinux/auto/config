@@ -12,8 +12,8 @@ lb_build_mirror_security="http://localhost:3142/security.debian.org/"
 lb config noauto \
         --ignore-system-defaults \
         --mode debian \
-        --debian-installer false \
-        --debian-installer-gui false \
+        --debian-installer live \
+        --debian-installer-gui true \
         --source "${_SOURCE}" \
         --architecture i386 \
         --distribution wheezy \

@@ -1,0 +1,4 @@
+debian/files
+debian/winwin-tools.debhelper.log
+debian/winwin-tools.substvars
+debian/winwin-tools/
