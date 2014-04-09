@@ -1,5 +1,5 @@
 label live-@FLAVOUR@
-	menu label ^WinWinLinux 0.2 testing (@FLAVOUR@)
+	menu label ^WinWin Linux 1.0 32bit(@FLAVOUR@)
 	menu default
 	linux @LINUX@
 	initrd @INITRD@
