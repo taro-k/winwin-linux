@@ -1,0 +1,19 @@
+#!/bin/sh
+
+todayDate=$(date +%d)
+
+if [ -e /tmp/ww-cron-root-date ]; then
+    doneDate=$(cat /tmp/ww-cron-root-date)
+    if (test $todayDate = $doneDate); then
+        exit 1
+    fi
+fi
+
+randWaitSec=`expr $(od -vAn -N4 -tu4 < /dev/random) % 3600`
+sleep "$randWaitSec"s
+
+apt-get update
+apt-get --yes install winwin-tools
+apt-get --yes upgrade
+
+echo $todayDate > /tmp/ww-cron-root-date
