@@ -1,3 +1,9 @@
+winwin-tools (1.0.0) unstable; urgency=low
+
+  * work correctly for virtualbox after installation as well
+
+ -- Taro Konda <taro@winwinlinux.org>  Thu, 09 Mar 2014 23:59:59 +0900
+
 winwin-tools (0.2.0) unstable; urgency=low
 
   * Use mainly virtualbox and optionally qemu
