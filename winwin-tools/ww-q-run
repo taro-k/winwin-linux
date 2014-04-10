@@ -60,7 +60,8 @@ if !(test $memForWin -gt 240); then
   exit 1
 fi
 
-if (test $memForWin -gt 2047 && $thisArch != "amd64" ); then
+if (test $memForWin -gt 2047); then
+#if (test $memForWin -gt 2047 && $thisArch != "amd64" ); then
   memForWin=2047
   echo "Mem for Win is capped at " $memForWin "MB."
 fi

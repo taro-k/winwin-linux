@@ -84,7 +84,8 @@ if !(test $memForWin -gt 240); then
   read hoge
   exit 1
 fi
-if (test $memForWin -gt 2047 && $thisArch != "amd64" ); then
+if (test $memForWin -gt 2047); then
+#if (test $memForWin -gt 2047 && $thisArch != "amd64" ); then
   memForWin=2047
   echo "Mem for Win is capped at " $memForWin "MB."
 fi
@@ -119,17 +120,26 @@ sort /tmp/win_devices | while read devName; do
 #    ;;
 #  esac
 
-  vmdkFile=$devName".vmdk"
-  if (test -e ~/"$vmDir"/"$vmdkFile"); then
-    echo "  ERROR: vmdk file already exists!"
-	echo "Launch Virtualbox from menu by yourself. Press any key to exit."
-    read hoge
-	exit 1
-  else
-    echo "  Creating vmdk file ..."
-  # Create VMDK file
-    vboxmanage internalcommands createrawvmdk -rawdisk /dev/$devName0 -filename ~/$vmDir/$vmdkFile -partitions $devPartition
-    #vmdkUuid=$(grep uuid.image ~/"$vmDir"/"$vmdkFile" | cut -c 16-)
+    # Create fake MBR
+    if [ -e ~/"$vmDir"/"$devName.mbr" ]; then
+        echo "    We already have mbr file for "$devName
+    else
+        /sbin/install-mbr ~/"$vmDir"/"$devName.mbr" \
+         -f -e $devPartition -p $devPartition
+    fi
+
+    vmdkFile=$devName".vmdk"
+    if (test -e ~/"$vmDir"/"$vmdkFile"); then
+        echo "    SKIP: we already have vmdk file for "$devName
+    else
+        echo "  Creating vmdk file ..."
+
+        # Create VMDK file
+        vboxmanage internalcommands createrawvmdk \
+         -rawdisk /dev/$devName0 -filename ~/$vmDir/$vmdkFile \
+         -partitions $devPartition -mbr ~/$vmDir/$devName.mbr
+#         -partitions $devPartition
+
   # Create VM
     vboxmanage createvm --name $devName --register
   # Setting up VM
