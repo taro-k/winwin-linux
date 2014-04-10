@@ -143,7 +143,7 @@ sort /tmp/win_devices | while read devName; do
   # Create VM
     vboxmanage createvm --name $devName --register
   # Setting up VM
-    vboxmanage modifyvm $devName --ostype WindowsXP --memory $memForWin --vram 16 --ioapic on --pae on --usb on --nic1 nat
+    vboxmanage modifyvm $devName --ostype WindowsXP --memory $memForWin --vram 16 --ioapic on --pae on --usb on
   # Setting up storage
   # Here is only IDE at this moment, because XP I tested doesn't work
   # with SATA and works with IDE even if original XP works on SATA.
